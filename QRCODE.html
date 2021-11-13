@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crie seu QR</title>
+</head>
+<style>
+    div{
+        background-color: black;
+        color: white;
+        position: absolute;
+        padding: 10px;
+        border-radius: 10px;
+        top: 30%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    html{
+        background-color: #CCC;
+    }
+
+    img{
+        position: absolute;
+        top: 70%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    canvas{
+        position: absolute;
+        top: 70%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        border: black 4px solid;
+        width: 400px;
+        height: 400px;
+    }
+</style>
+<body>
+    <button onclick="Mqr()">Melhor codigo QR</button>
+    <div>
+    <h1>Criador de QRCODE</h1>
+    <input>
+    <button onclick="aml2014()">Ver QR</button>
+    </div> 
+    <canvas></canvas>
+    <img class="qr">
+</body>
+<script>
+function aml2014(){
+  var input = document.querySelector('input').value;
+  var App = 'https://chart.googleapis.com/chart?cht=qr&chs=400x400&chld=H&chl=';
+  var QR = App + encodeURIComponent(input);
+  document.querySelector('.qr').src = QR;
+}
+function Mqr() {
+  var App = 'https://chart.googleapis.com/chart?cht=qr&chs=400x400&chld=H&chl=';
+  var QR = App + encodeURIComponent("https://github.com/aml2014");
+  document.querySelector('.qr').src = QR;
+}
+</script>
+</html>
